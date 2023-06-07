@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebAppSemana06.Models.TbOrdenCompra> 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html>
+    <head>
+
+    </head>
+    <body>
+           <h1>Orden De Compra</h1>
+          <table class="table table-bordered">
+            <tr>
+            <td><b>Fecha Orden de Compra</b></td>
+                <td><b>Fechae Atencion</b></td> 
+                <td><b>Estado de Compra</b></td>
+                <td><b>Ver</b></td>
+            </tr>
+            <tbody>
+            @foreach(TbOrdenCompra ordenCompra in Model)
+            {
+                <tr>
+                    <td>@ordenCompra.FecOco</td>
+                    <td>@ordenCompra.FecAte</td>
+                    <td>@ordenCompra.EstOco</td>
+                    <td>
+                        <a asp-action="VerOrdenCompra" asp-route-cod="@ordenCompra.NumOco"> Ver Detalles </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+          </table>
+    </body>
+</html>

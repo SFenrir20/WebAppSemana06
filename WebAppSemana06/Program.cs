@@ -12,6 +12,12 @@ builder.Services
 builder.Services
     .Add(new ServiceDescriptor(typeof(IDistrito),
         new DistritoRepository()));
+builder.Services
+    .Add(new ServiceDescriptor(typeof(IProveedor),
+        new ProveedorRepository()));
+builder.Services
+    .Add(new ServiceDescriptor(typeof(IOrdenDeCompra),
+        new OrdenDeCompraRespository()));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -33,6 +39,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Producto}/{action=Index}/{id?}");
+    pattern: "{controller=OrdenCompras}/{action=VallOrdenCompra}/{id?}");
 
 app.Run();
