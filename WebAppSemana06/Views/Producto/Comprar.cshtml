@@ -1,0 +1,30 @@
+﻿@model WebAppSemana06.Models.TbProducto
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html>
+    <head>
+
+    </head>
+    <body>
+    <div class="container">
+
+        <h1>DATOS DEL PRODUCTO</h1>
+        <h3>Codigo:@Model.CodPro</h3>
+        <h3>Descripcion:@Model.DesPro</h3>
+        <h3>Precio:@Model.PrePro</h3>
+        <h3>Stock:@Model.StkAct</h3>
+
+        <form asp-controller="TemporalVenta" asp-action="Index" method="post">
+            <input type="hidden" name="txtcodigo" value="@Model.CodPro" />
+            <input type="hidden" name="txtdescripcion" value="@Model.DesPro" />
+            <input type="hidden" name="txtprecio" value="@Model.PrePro" />
+            <input type="number" name="txtcantidad" placeholder="Ingrese la Cantidad" />
+            <input type="submit" value="Agregar al Carrito" />
+        </form>
+    </div>
+
+    </body>
+</html>
